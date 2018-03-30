@@ -14,3 +14,10 @@ Link:
 
 Execute:
 > forw -emu hello.ex
+
+
+A script doing all this in Windows:
+> make_example.bat hello
+
+Or in Linux: 
+>./make_example.sh hello
