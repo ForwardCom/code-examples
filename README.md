@@ -21,3 +21,6 @@ A script doing all this in Windows:
 
 Or in Linux: 
 >./make_example.sh hello
+
+
+You can find more code examples under libraries.
