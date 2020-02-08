@@ -3,7 +3,7 @@
 # Usage: ./make_example.sh hello
 
 # make_example.sh
-#  By Agner Fog 2018-03-30
+#  By Agner Fog 2020-02-08
 
 # Stop if error:
 set -e
@@ -12,7 +12,7 @@ set -e
 ./forw -ass $1.as
 
 # Link:
-./forw -link $1.ex $1.ob libc.li
+./forw -link $1.ex $1.ob libc.li math.li
 
 # run
 echo Running $1.ex:
