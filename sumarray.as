@@ -1,7 +1,8 @@
 ﻿/****************************  sumarray.as  ***********************************
 * Author:        Agner Fog
 * date created:  2018-02-24
-* Version:       1.00
+* last modified: 2020-04-24
+* Version:       1.09
 * Project:       ForwardCom example, assembly code
 * Description:   Calculates the sum of the numbers from 1 to 100
 *
@@ -10,7 +11,7 @@
 * instructions work. 
 * The expected result is the mean times the number: (1+100)*100/2 = 5050.
 *
-* Copyright 2018 GNU General Public License http://www.gnu.org/licenses
+* Copyright 2018-2020 GNU General Public License http://www.gnu.org/licenses
 *****************************************************************************/
 
 %num = 100                                       // number of array elements
@@ -63,7 +64,7 @@ int32 r1 = get_len(v0)                           // length of vector in bytes
 // Round up the vector length to the nearest power of 2. 
 // The maximum vector length is known to be a power of 2,
 // but the length may be 'num' elements, which is not a power of 2
-int32 r1 = round_u2(r1)                          // r1 is now a power of 2, not bigger than the maximum vector length
+int32 r1 = roundp2(r1, 1)                        // r1 is now a power of 2, not bigger than the maximum vector length
 int32 v0 = set_len(r1, v0)                       // adjust vector length to nearest higher power of 2. Added elements will be zero
 while (uint32+ r1 > 4) {                         // loop to calculate horizontal sum
    uint32+ r1 >>= 1                              // the vector length is halved
