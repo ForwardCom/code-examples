@@ -22,8 +22,8 @@ Or in Linux:
 >./make_example.sh hello
 
 Run:
-Some of these examples can run in a softcore when linked with libc-light.li. 
-See the manual for the softcore
+>Some of these examples can run in a softcore when linked with libc-light.li. 
+>See the manual for the softcore
 
 
 You can find more code examples under test-suite and libraries.
