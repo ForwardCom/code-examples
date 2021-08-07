@@ -12,9 +12,8 @@ Assemble:
 Link:
 > forw -link hello.ex hello.ob libc.li math.li
 
-Execute:
+Emulate:
 > forw -emu hello.ex
-
 
 A script doing all this in Windows:
 > make_example.bat hello
@@ -22,5 +21,9 @@ A script doing all this in Windows:
 Or in Linux: 
 >./make_example.sh hello
 
+Run:
+Some of these examples can run in a softcore when linked with libc-light.li. 
+See the manual for the softcore
 
-You can find more code examples under libraries.
+
+You can find more code examples under test-suite and libraries.
