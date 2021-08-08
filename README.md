@@ -27,3 +27,17 @@ Run:
 
 
 You can find more code examples under test-suite and libraries.
+
+##
+
+Files included |  Description
+--- | ---
+hello.as  |  Simple Hello world example. Works on emulator and softcore
+calculator.as   |    Inputs two integers and calculates +-*/% operations. Works on emulator and softcore
+guess_number.as  |   Guessing game. Works on emulator and softcore
+event.as  |   Demonstrates the event handling system. Works on emulator
+trigonometric-f.as  |  Calculates trigonometric functions with single precision. Works on emulator
+trigonometric.as  |  Calculates trigonometric functions with double precision. Works on emulator
+integrate.as  |  Integration of sin function. Works on emulator
+make_example.bat  |   Windows bat file for compiling and linking example
+make_example.sh  |  Linux shell script for compiling and linking example
