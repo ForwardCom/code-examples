@@ -1,18 +1,19 @@
 ﻿/****************************  calculator.as  *********************************
 * Author:        Agner Fog
 * date created:  2021-05-26
-* last modified: 2021-07-20
-* Version:       1.11
+* last modified: 2023-01-08
+* Version:       1.12
 * Project:       ForwardCom example, assembly code
 * Description:   Simple test of arithmetic instructions
 *                Link with libc_light.li
 *
-* Copyright 2021 GNU General Public License http://www.gnu.org/licenses
+* Copyright 2021-2023 GNU General Public License v. 3
+* http://www.gnu.org/licenses
 *****************************************************************************/
 
 // Library functions in libc_light.li
 extern _print_string:  function reguse=3,0
-extern _printf:        function reguse=0xF,0
+extern _printf_light:  function reguse=0xF,0
 extern _gets_s:        function reguse=3,0
 extern _atoi:          function reguse=3,0
 extern _multiply_int:  function reguse=1,0
@@ -76,20 +77,23 @@ do {                                   // repeat as long as user answers yes
     int32 [sp+0x10] = r2
     int32 r2 = r8 - r9                 // a - b
     int32 [sp+0x18] = r2
-    int32 r0 = r8
-    int32 r1 = r9
-    call  _multiply_int                // a * b, using function call 
+    //int32 r0 = r8
+    //int32 r1 = r9
+    //call  _multiply_int                // a * b, using function call 
+    int32 r0 = r8 * r9
     int32 [sp+0x20] = r0
-    int32 r0 = r8
-    int32 r1 = r9
-    call  _divide_int                  // a / b, using function call 
+    //int32 r0 = r8
+    //int32 r1 = r9
+    //call  _divide_int                  // a / b, using function call 
+    int32 r0 = r8 / r9
+    int32 r1 = r8 % r9
     int32 [sp+0x28] = r0
     int32 [sp+0x30] = r1               // a % b
 
     // print results
     int64 r0 = address([formatstring]) // pointer to format string
     int64 r1 = sp                      // pointer to parameter list
-    call  _printf                      // print results
+    call  _printf_light                // print results
 
     // ask if the user wants to try again
     int64 r0 = address([text3])
