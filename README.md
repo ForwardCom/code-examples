@@ -10,7 +10,7 @@ Assemble:
 > forw -ass hello.as
 
 Link:
-> forw -link hello.ex hello.ob libc.li math.li
+> forw -link hello.ex hello.ob libc_light.li libc.li math.li
 
 Emulate:
 > forw -emu hello.ex
