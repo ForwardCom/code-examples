@@ -42,3 +42,12 @@ trigonometric.as  |  Calculates trigonometric functions with double precision. W
 integrate.as  |  Integration of sin function. Works on emulator
 make_example.bat  |   Windows bat file for compiling and linking example
 make_example.sh  |  Linux shell script for compiling and linking example
+test_arithmetics.as  |  Test arithmetic instructions on softcore
+test_bool_bit.as  |  Test boolean and bit-manipulation instructions on softcore
+test_branch.as  |  Test branch instructions on softcore
+test_formats.as  |  Test all instruction formats on softcore
+test_muldiv.as  |  Test integer multiplication and division instructions on softcore
+test_pipeline_stalls.as  |  Test if pipeline stalls are handled correctly on softcore
+test_pushpop.as  |  Test push and pop instructions on softcore
+
+
