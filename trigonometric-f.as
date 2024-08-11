@@ -1,15 +1,15 @@
-﻿/*************************  trigonometric.as  *********************************
+﻿/*************************  trigonometric-f.as ********************************
 * Author:        Agner Fog
 * date created:  2018-02-29
-* last modified: 2020-04-24
-* Version:       1.09
+* last modified: 2024-08-11
+* Version:       1.13
 * Project:       ForwardCom example, assembly code
 * Description:   Makes a table of sine, cosine, and tangent
 *                Uses a simple loop without vectorization
 *
 * Link with libraries libc.li and math.li
 *
-* Copyright 2018-2020 GNU General Public License http://www.gnu.org/licenses
+* Copyright 2018-2024 GNU General Public License www.gnu.org/licenses
 *****************************************************************************/
 
 const section read ip                            // read-only data section
@@ -24,19 +24,18 @@ bss end
 
 code section execute align = 4                   // code section
 
-extern _sincosf: function, reguse = 0, 0x7BF      // library function: sine and cosine in radians
-extern _printf: function                         // library function: formatted output to stdout
-extern _puts:   function                         // library function: print string to stdout
+extern _sincosf: function, reguse = 0, 0x7BF     // library function: sine and cosine in radians
+extern _printf:  function                        // library function: formatted output to stdout
+extern _puts:    function                        // library function: print string to stdout
 
 _main function public                            // program begins here
 
 int64 r0 = address([intro])
-call _puts
+call _puts                                       // write introduction text
 
 for (double v12 = -1; v12 < 4; v12 += 0.1) {     // loop
-   double v0 = compress(v12, 0)
-   float v0 = v0
-   call _sincosf                                  // sin(x) in v0, cos(x) in v1
+   float v0 = compress(v12, 0)
+   call _sincosf                                 // sin(x) in v0, cos(x) in v1
    double v0 = expand(v0, 0)
    double v1 = expand(v1, 0)
    double v2 = v0 / v1                           // tan(x) = sin(x) / cos(x)
